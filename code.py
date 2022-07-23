@@ -13,31 +13,15 @@ def isPrime(n):
                 break
         return isprime
 
-def getNextPrime(number):
-    while isPrime(number+1):
-        number=number+1
-    return number
     
 def isSPrime(number):
-    firstPrime = 2
-    secondPrime = 3
-    
-    res=True
-    while(True):
-        prod = firstPrime * secondPrime
-        print(firstPrime,secondPrime,prod)
-        sum1 = firstPrime + secondPrime
-        if sum1 >= number:
-            res = False
+    primeCounter = 2
+    res=False
+    counter = int(M.sqrt(number))
+    for i in range(2,counter+1):
+        if number%i==0 and isPrime(i) and isPrime(number//i):
+            res=True
             break
-        else:
-            if prod == number:
-                res =True
-                break
-            elif prod < number:
-                secondPrime = getNextPrime(number)
-            else:
-                firstPrime = getNextPrime(number)
     return res
     
         
