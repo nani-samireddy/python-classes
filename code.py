@@ -1,15 +1,16 @@
 import math
 
 def gcd(a,b):
-    if(a<=0):
-        return b
-    elif b<=0:
-        return a
+    res = 0
+    while(a>0 and b>0):
+        if(a>b):
+            a=a%b
+        else:
+            b=b%a
     if a>b:
-        return gcd(a%b,b)
+        return a
     else:
-        return gcd(a,b%a)
-        
+        return b
 
 
 test = int(input())
